@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Nexus Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="app-header glass-effect">
+        <div class="header-container">
+            <div class="logo">
+                <span class="highlight">Nexus</span> Admin
+            </div>
+            <nav>
+                <a href="index.html">Student Portal</a>
+                <a href="admin.html" class="active">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container admin-layout mt-4">
+        <aside class="admin-sidebar glass-effect animated slide-in-left">
+            <h3 class="sidebar-title">Manage Platform</h3>
+            <ul class="admin-nav" id="admin-nav-tabs">
+                <li><a href="#" data-target="registrations-list" class="active">Registrations</a></li>
+                <li><a href="#" data-target="events-list">All Events</a></li>
+                <li><button id="btn-create-event" class="btn btn-primary full-width mt-2">+ New Event</button></li>
+            </ul>
+        </aside>
+
+        <section class="admin-content animated fade-in-up">
+            
+            <!-- Create Event Modal / Panel -->
+            <div id="create-event-panel" class="admin-panel glass-effect hidden">
+                <div class="panel-header">
+                    <h2>Create New <span class="highlight">Event</span></h2>
+                    <button class="close-panel-btn" id="close-create">&times;</button>
+                </div>
+                <form id="create-event-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="event-title">Event Title</label>
+                            <input type="text" id="event-title" required placeholder="e.g. AI Seminar">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Date</label>
+                            <input type="date" id="event-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-time">Time</label>
+                            <input type="time" id="event-time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-location">Location</label>
+                            <input type="text" id="event-location" required placeholder="Room 204">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-capacity">Capacity</label>
+                            <input type="number" id="event-capacity" required placeholder="100">
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="event-desc">Description</label>
+                        <textarea id="event-desc" rows="4" required placeholder="Details about the event"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Publish Event</button>
+                    </div>
+                    <div id="admin-msg" class="msg"></div>
+                </form>
+            </div>
+
+            <!-- Registrations View -->
+            <div id="registrations-list" class="admin-panel glass-effect active-panel">
+                <h2>Student Registrations</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th># ID</th>
+                                <th>Student Name</th>
+                                <th>Student ID/PRN</th>
+                                <th>Email</th>
+                                <th>Event Registered</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrations-tbody">
+                            <tr><td colspan="5" class="text-center">Loading registrations...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Events View -->
+            <div id="events-list" class="admin-panel glass-effect hidden">
+                <h2>All Events</h2>
+                <div class="events-grid admin-events-grid" id="admin-events-container">
+                    <!-- Events loaded via JS -->
+                    <div class="loader">Loading events...</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

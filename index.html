@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIT Event Portal | Register Now</title>
+    <meta name="description" content="Discover and register for upcoming department events, workshops, and tech symposiums.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="app-header glass-effect">
+        <div class="header-container">
+            <div class="logo">
+                <span class="highlight">Nexus</span> Events
+            </div>
+            <nav>
+                <a href="index.html" class="active">Student Portal</a>
+                <a href="admin.html">Admin Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section text-center animated fade-in-up">
+            <div class="hero-badge">Dept. of Computer Science</div>
+            <h1>Discover & Register for Upcoming <span class="highlight">Department Events</span></h1>
+            <p>Don't miss out on workshops, seminars, and our annual tech symposiums. Unlock your potential today.</p>
+        </section>
+
+        <section class="events-section">
+            <h2 class="section-title animated fade-in-up">Upcoming Events</h2>
+            <div id="events-loader" class="loader">Loading events...</div>
+            <div class="events-grid" id="events-container">
+                <!-- Event cards will be injected here via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="modal hidden">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h2>Register for <span id="modal-event-title" class="highlight"></span></h2>
+                <button class="close-btn" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="registration-form">
+                <input type="hidden" id="event-id" name="event_id">
+                
+                <div class="form-group">
+                    <label for="student-name">Full Name</label>
+                    <input type="text" id="student-name" name="student_name" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-id">Student ID/PRN</label>
+                    <input type="text" id="student-id" name="student_id_number" required placeholder="Ex: SIT12345">
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-email">Email Address</label>
+                    <input type="email" id="student-email" name="email" required placeholder="john@student.edu">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary large-btn">Confirm Registration</button>
+                </div>
+                <div id="form-msg" class="msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
